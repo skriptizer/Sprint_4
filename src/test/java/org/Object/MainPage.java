@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
 // Кука
     public static By cookieButton = By.className("App_CookieButton__3cvqF");
@@ -44,7 +44,7 @@ public class MainPage {
     // Вы привозите зарядку вместе с самокатом?
     public static By areYouBringingaACharger = By.id("accordion__heading-5");
     // Можно ли отменить заказ?
-    public static By isItPossibleToCanсelTheOrder = By.id("accordion__heading-6");
+    public static By isItPossibleToCancelTheOrder = By.id("accordion__heading-6");
     // Я живу за МКАДом, привезёте?
     public static By iLiveAcrossTheMkad = By.id("accordion__heading-7");
 
@@ -52,20 +52,29 @@ public class MainPage {
 
     // Сутки — 400 рублей. Оплата курьеру — наличными или картой.
     public static By answerHowMuchIsIt = By.xpath("//*[@id='accordion__panel-0']/p");
+    public static String answerHowMuchIsItText = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
     // Один заказ - один самокат
     public static By answerIWantSomeScooters = By.xpath("//*[@id='accordion__panel-1']/p");
+    public static String answerIWantSomeScootersText = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.";
     // Допустим, вы оформляете заказ на 8 мая
     public static By answerHowIsTheRentalTime = By.xpath("//*[@id='accordion__panel-2']/p");
+    public static String answerHowIsTheRentalTimeText = "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.";
     // Только начиная с завтрашнего дня. Но скоро станем расторопнее
     public static By answerOrderToday = By.xpath("//*[@id='accordion__panel-3']/p");
+    public static String answerOrderTodayText = "Только начиная с завтрашнего дня. Но скоро станем расторопнее.";
     // Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010
     public static By answerExtendTheOrder = By.xpath("//*[@id='accordion__panel-4']/p");
+    public static String answerExtendTheOrderText = "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.";
     // Самокат приезжает к вам с полной зарядкой
     public static By answerAreYouBringingaACharger = By.xpath("//*[@id='accordion__panel-5']/p");
+    public static String answerAreYouBringingaAChargerText = "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.";
     // Да, пока самокат не привезли.
-    public static By answerIsItPossibleToCanсelTheOrder = By.xpath("//*[@id='accordion__panel-6']/p");
+    public static By answerIsItPossibleToCancelTheOrder = By.xpath("//*[@id='accordion__panel-6']/p");
+    public static String answerIsItPossibleToCancelTheOrderText = "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.";
     // Да, обязательно. Всем самокатов! И Москве, и Московской области.
     public static By answerILiveAcrossTheMkad = By.xpath("//*[@id='accordion__panel-7']/p");
+    public static String answerILiveAcrossTheMkadText = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
+
 
     public MainPage(WebDriver driver){
         this.driver = driver;

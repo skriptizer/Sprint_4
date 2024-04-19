@@ -2,14 +2,11 @@ import org.Object.MainPage;
 import org.Object.NotFoundPage;
 import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class NotFoundOrderTest {
     private final WebDriver driver = new ChromeDriver();
@@ -31,8 +28,8 @@ public class NotFoundOrderTest {
         NotFoundPage objNotFoundPage = new NotFoundPage(driver);
         objNotFoundPage.waitForLoadNotFoundPage();
 
-        Boolean isNotFoundDisplayed = driver.findElement(NotFoundPage.orderNotFound).isDisplayed();
-        assertEquals(true, isNotFoundDisplayed);
+        boolean isNotFoundDisplayed = driver.findElement(NotFoundPage.orderNotFound).isDisplayed();
+        assertTrue(isNotFoundDisplayed);
     }
 
     @After

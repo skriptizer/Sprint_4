@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.numberOfWindowsToBe;
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
@@ -24,8 +24,8 @@ public class LogoTest {
         objMainPage.clickButton(MainPage.logoScooter);
         objMainPage.waitForLoadMainPage();
 
-        Boolean isSuccsessDisplayed = driver.findElement(MainPage.title).isDisplayed();
-        assertEquals(true, isSuccsessDisplayed);
+        boolean isSuccessDisplayed = driver.findElement(MainPage.title).isDisplayed();
+        assertTrue(isSuccessDisplayed);
     }
 
     @Test
@@ -50,8 +50,8 @@ public class LogoTest {
         new WebDriverWait(driver, 3)
                 .until(titleIs("Дзен"));
 
-        Boolean isDzenPageDisplayed = driver.findElement(DzenPage.dzenSearch).isDisplayed();
-        assertEquals(true, isDzenPageDisplayed);
+        boolean isDzenPageDisplayed = driver.findElement(DzenPage.dzenSearch).isDisplayed();
+        assertTrue(isDzenPageDisplayed);
     }
 
     @After

@@ -8,32 +8,35 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.Object.MainPage;
 import org.junit.Test;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class QuestionTest {
     private final WebDriver driver = new ChromeDriver();
     private final  By buttonLocator;
     private final  By textLocator;
+    private final String answerText;
 
-    public QuestionTest(By buttonLocator, By textLocator){
+    public QuestionTest(By buttonLocator, By textLocator, String answerText){
         this.buttonLocator = buttonLocator;
         this.textLocator = textLocator;
+        this.answerText = answerText;
+
     }
 
     @Parameterized.Parameters
     public static Object[][] getCredentials() {
         return new Object[][] {
-                {MainPage.howMuchIsIt, MainPage.answerHowMuchIsIt},
-                {MainPage.iWantSomeScooters, MainPage.answerIWantSomeScooters},
-                {MainPage.howIsTheRentalTime, MainPage.answerHowIsTheRentalTime},
-                {MainPage.orderToday, MainPage.answerOrderToday},
-                {MainPage.extendTheOrder, MainPage.answerExtendTheOrder},
-                {MainPage.areYouBringingaACharger, MainPage.areYouBringingaACharger},
-                {MainPage.isItPossibleToCanсelTheOrder, MainPage.answerIsItPossibleToCanсelTheOrder},
-                {MainPage.iLiveAcrossTheMkad, MainPage.answerILiveAcrossTheMkad},
+                {MainPage.howMuchIsIt, MainPage.answerHowMuchIsIt, MainPage.answerHowMuchIsItText},
+                {MainPage.iWantSomeScooters, MainPage.answerIWantSomeScooters, MainPage.answerIWantSomeScootersText},
+                {MainPage.howIsTheRentalTime, MainPage.answerHowIsTheRentalTime, MainPage.answerHowIsTheRentalTimeText},
+                {MainPage.orderToday, MainPage.answerOrderToday, MainPage.answerOrderTodayText},
+                {MainPage.extendTheOrder, MainPage.answerExtendTheOrder, MainPage.answerExtendTheOrderText},
+                {MainPage.areYouBringingaACharger, MainPage.answerAreYouBringingaACharger, MainPage.answerAreYouBringingaAChargerText},
+                {MainPage.isItPossibleToCancelTheOrder, MainPage.answerIsItPossibleToCancelTheOrder, MainPage.answerIsItPossibleToCancelTheOrderText},
+                {MainPage.iLiveAcrossTheMkad, MainPage.answerILiveAcrossTheMkad, MainPage.answerILiveAcrossTheMkadText},
         };
     }
 
@@ -50,7 +53,9 @@ public class QuestionTest {
         objMainPage.clickButton(buttonLocator);
 
         boolean isTextDisplayed = driver.findElement(textLocator).isDisplayed();
-        assertEquals(true, isTextDisplayed);
+        String isAnswerCorrect = driver.findElement(textLocator).getText();
+        assertTrue(isTextDisplayed);
+        assertEquals(answerText, isAnswerCorrect);
     }
 
     @After

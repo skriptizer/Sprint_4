@@ -1,12 +1,12 @@
 package org.Object;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class OrderPage {
-
-    private WebDriver driver;
+    private final WebDriver driver;
 
 // Кнопки заказать
     // Нижняя кнопка "Заказать"
@@ -57,8 +57,6 @@ public class OrderPage {
     public static By grey = By.id("grey");
     // Комментарий для курьера
     public static By inputComment = By.xpath(".//input[@placeholder='Комментарий для курьера']");
-    // Ошибка "Тут что-то не так"
-    public static By inputCommentError = By.xpath(".//div[text()='Тут что-то не так']");
 
     // Кнопка далее
     public static By nextButton = By.xpath(".//div[@class='Order_NextButton__1_rCA']/button");
@@ -82,14 +80,6 @@ public class OrderPage {
     public void clickButton(By locator) {
         this.locator = locator;
         driver.findElement(locator).click();
-    }
-
-    public boolean isElementDisplayed(By locator) {
-        this.locator = locator;
-        if (driver.findElement(locator).isDisplayed()){
-            return true;
-        }
-        return false;
     }
 
     public void input(By locator, String name) {

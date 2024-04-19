@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NotFoundPage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     // Окно "Такого заказа нет"
     public static By orderNotFound = By.className("Track_NotFound__6oaoY");

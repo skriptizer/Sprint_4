@@ -4,8 +4,7 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ErrorInputTest {
     private final WebDriver driver = new ChromeDriver();
@@ -28,7 +27,7 @@ public class ErrorInputTest {
         objOrderPage.input(OrderPage.inputName, "Alex");
         objOrderPage.clickButton(OrderPage.inputSurName);
         boolean isErrorDisplayed = driver.findElement(OrderPage.inputNameError).isDisplayed();
-        assertEquals(true, isErrorDisplayed);
+        assertTrue(isErrorDisplayed);
     }
 
     @Test
@@ -36,7 +35,7 @@ public class ErrorInputTest {
         objOrderPage.input(OrderPage.inputSurName, "Alex");
         objOrderPage.clickButton(OrderPage.inputName);
         boolean isErrorDisplayed = driver.findElement(OrderPage.inputSurNameError).isDisplayed();
-        assertEquals(true, isErrorDisplayed);
+        assertTrue(isErrorDisplayed);
     }
 
     @Test
@@ -44,14 +43,14 @@ public class ErrorInputTest {
         objOrderPage.input(OrderPage.inputAddress, "Alex");
         objOrderPage.clickButton(OrderPage.inputName);
         boolean isErrorDisplayed = driver.findElement(OrderPage.inputAddressError).isDisplayed();
-        assertEquals(true, isErrorDisplayed);
+        assertTrue(isErrorDisplayed);
     }
 
     @Test
     public void inputMetroErrorTest(){
         objOrderPage.clickButton(OrderPage.nextButton);
         boolean isErrorDisplayed = driver.findElement(OrderPage.inputMetroError).isDisplayed();
-        assertEquals(true, isErrorDisplayed);
+        assertTrue(isErrorDisplayed);
     }
 
     @Test
@@ -59,7 +58,7 @@ public class ErrorInputTest {
         objOrderPage.input(OrderPage.inputPhone, "899");
         objOrderPage.clickButton(OrderPage.inputName);
         boolean isErrorDisplayed = driver.findElement(OrderPage.inputPhoneError).isDisplayed();
-        assertEquals(true, isErrorDisplayed);
+        assertTrue(isErrorDisplayed);
     }
 
     @After

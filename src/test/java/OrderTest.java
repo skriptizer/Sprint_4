@@ -6,13 +6,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class OrderTest {
 
-    //private final WebDriver driver = new ChromeDriver();
-    private final WebDriver driver = new FirefoxDriver();
+    private final WebDriver driver = new ChromeDriver();
+    //private final WebDriver driver = new FirefoxDriver();
 
     @Test
     public void orderSuccessTopButtonTest() {
@@ -41,8 +40,8 @@ public class OrderTest {
         objOrderPage.clickButton(OrderPage.orderButton);
         objOrderPage.clickButton(OrderPage.yesButton);
 
-        Boolean isSuccsessDisplayed = driver.findElement(OrderPage.success).isDisplayed();
-        assertEquals(true, isSuccsessDisplayed);
+        boolean isSuccessDisplayed = driver.findElement(OrderPage.success).isDisplayed();
+        assertTrue(isSuccessDisplayed);
     }
 
     @Test
@@ -74,8 +73,8 @@ public class OrderTest {
         objOrderPage.clickButton(OrderPage.orderButton);
         objOrderPage.clickButton(OrderPage.yesButton);
 
-        Boolean isSuccsessDisplayed = driver.findElement(OrderPage.success).isDisplayed();
-        assertEquals(true, isSuccsessDisplayed);
+        boolean isSuccessDisplayed = driver.findElement(OrderPage.success).isDisplayed();
+        assertTrue(isSuccessDisplayed);
     }
 
     @After
